@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "AplicativoCotacao",
+    "slug": "AplicativoCotacao",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./public/bookicon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./public/bookicon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./public/logo192.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/cash-back.png"
+    }
+  }
+}
