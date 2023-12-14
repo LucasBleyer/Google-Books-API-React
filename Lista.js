@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Button, TouchableOpacity, Image  } from 'react-native';
+import { View, Text, FlatList, Button, TouchableOpacity, StyleSheet, Image  } from 'react-native';
 import { collection, query, getDocs, deleteDoc, doc, where } from 'firebase/firestore';
 import { db } from './Firebase';
 import { useFocusEffect } from '@react-navigation/native';
@@ -76,16 +76,20 @@ export default function Lista () {
 
     return (
       <View style={{flex: 1, justifyContent: 'center',}}>
+
+      <Text style={styles.title}>Sua Biblioteca</Text>
+        <Text style={styles.subtitle}>Explore e gerencie seus livros favoritos</Text>
+
         <FlatList
           data={livros}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View style={{ borderWidth: 1, borderColor: 'black', marginBottom: 10, borderRadius: 5 }}>
+            <View style={{ borderWidth: 1, borderColor: '#3498db', marginBottom: 10, borderRadius: 5, margin: 20}}>
 
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 10 }}>
                 <View style={{ width: 80, height: 120, backgroundColor: 'lightgray', marginRight: 10, }} >
                 <Image
-                  source={{ uri: `${item.thumbnail}` }} // Usa a URL da thumbnail do item
+                  source={{ uri: `${item.thumbnail}` }} 
                   style={{ width: '100%', height: '100%', borderRadius: 5 }}
                   resizeMode="cover"
                 />
@@ -97,10 +101,10 @@ export default function Lista () {
         </View>
 
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity style={{ backgroundColor: 'blue', padding: 8, borderRadius: 5, marginRight: 5 }}  onPress={() => handleEditar(item.id)}>
+          <TouchableOpacity style={{ backgroundColor: '#3498db', padding: 8, borderRadius: 5, marginRight: 5 }}  onPress={() => handleEditar(item.id)}>
             <Text style={{ color: 'white' }}>Editar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ backgroundColor: 'red', padding: 8, borderRadius: 5 }}  onPress={() => handleExcluir(item.id)}>
+          <TouchableOpacity style={{ backgroundColor: '#e74c3c', padding: 8, borderRadius: 5 }}  onPress={() => handleExcluir(item.id)}>
             <Text style={{ color: 'white' }}>Excluir</Text>
           </TouchableOpacity>
         </View>
@@ -112,3 +116,20 @@ export default function Lista () {
       </View>
     );
   };
+
+  const styles = StyleSheet.create({
+    title: {
+      fontSize: 31,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginHorizontal: 20,
+      color: '#007BFF',
+    },
+    subtitle:{
+      fontSize: 18,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginHorizontal: 20,
+      color: '#3498db',
+    }
+  });

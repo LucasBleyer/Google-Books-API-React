@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, TextInput, ScrollView, Button, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { addDoc, collection } from 'firebase/firestore';
 import { db, auth } from './Firebase';
 import Modal from 'react-native-modal';
@@ -72,98 +72,89 @@ export default function Cadastrar() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1}}>
+      <View style={styles.container}>
+          <Image
+            source={require('./public/books.jpg')}
+            style={styles.imagem}
+          />
 
-    <View style={{marginBottom: 50}}>
-    <Text style={styles.title}>Explore e Registre suas Belas Obras!</Text>
-      <Text style={styles.subtitle}>Transforme sua Biblioteca em um Mundo de Inspiração.</Text>
+        <View style={styles.content}>
+          <Text style={styles.title}>Explore e Registre suas  {"\n"} Belas Obras!</Text>
+          <Text style={styles.subtitle}>{"\n"}Transforme sua Biblioteca em um{"\n"} Mundo de Inspiração.</Text>
 
-      <Text style={styles.description}>
-      Dê vida à sua paixão pela leitura! No Gerenciador de Livros, você pode explorar, registrar e relembrar suas obras literárias favoritas. 
-      Crie uma biblioteca repleta de belas histórias e autores inspiradores.
-      </Text>
+          <Text style={styles.description}>
+          Dê vida à sua paixão pela leitura! No Gerenciador de Livros, você pode explorar, registrar e relembrar suas obras literárias favoritas. 
+          Crie uma biblioteca repleta de belas histórias e autores inspiradores.
+          </Text>
 
-      <Text style={styles.description}>
-      Registre cada obra-prima que tocar o seu coração. Da poesia à prosa, cada livro tem seu lugar neste espaço dedicado à magia das palavras.
-      Compartilhe suas descobertas literárias e conecte-se com outros amantes de livros em uma comunidade apaixonada.
-      </Text>
+          <Text style={styles.description}>
+          Registre cada obra-prima que tocar o seu coração. Da poesia à prosa, cada livro tem seu lugar neste espaço dedicado à magia das palavras.
+          Compartilhe suas descobertas literárias e conecte-se com outros amantes de livros em uma comunidade apaixonada.
+          </Text>
 
-      <Text style={styles.description}>
-      O Gerenciador de Livros é o seu refúgio para a apreciação de belas obras. Explore novos mundos, mergulhe em narrativas envolventes
-      e construa sua própria galeria de tesouros literários. Comece a jornada agora e faça cada registro contar uma história única.
-      </Text>
-    </View>
-      
-      <TextInput
-      style={styles.input}
-      placeholder="Título"
-      value={titulo}
-      onChangeText={(text) => setTitulo(text)}
-      />
-
-      <TouchableOpacity
-      style={styles.button}
-      activeOpacity={0.8}
-      onPress={handleCadastrar}
-      >
-      <Text style={styles.buttonText}>Cadastrar Livro</Text>
-      </TouchableOpacity>
-
-      <Modal isVisible={isErrorModalVisible} onBackdropPress={closeModal}>
-        <View style={styles.modalContainer}>
-          {successMessage ? (
-            <Text style={styles.successText}>{successMessage}</Text>
-          ) : null}
-          <Text style={styles.errorText}>{errorMessage}</Text>
-          <Button title="Fechar" onPress={closeModal} />
+          <Text style={styles.description}>
+          O Gerenciador de Livros é o seu refúgio para a apreciação de belas obras. Explore novos mundos, mergulhe em narrativas envolventes
+          e construa sua própria galeria de tesouros literários. Comece a jornada agora e faça cada registro contar uma história única.
+          </Text>
         </View>
-      </Modal>
-    </View>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Busque por um livro..."
+          value={titulo}
+          onChangeText={(text) => setTitulo(text)}
+        />
+
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.8}
+          onPress={handleCadastrar}
+        >
+          <Text style={styles.buttonText}>Cadastrar Livro</Text>
+        </TouchableOpacity>
+
+        <Modal isVisible={isErrorModalVisible} onBackdropPress={closeModal}>
+          <View style={styles.modalContainer}>
+            {successMessage ? (
+              <Text style={styles.successText}>{successMessage}</Text>
+            ) : null}
+            <Text style={styles.errorText}>{errorMessage}</Text>
+            <Button title="Fechar" onPress={closeModal} />
+          </View>
+        </Modal>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  input: {
-    width: '80%',
-    height: 40,
-    borderWidth: 2,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginBottom: 10,
-    fontSize: 20,
-  },
-  button: {
-    backgroundColor: '#3498db', 
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 5,
-    marginTop:10,
-  },
-  buttonText: {
-    color: '#ecf0f1', 
-    fontWeight: 'bold',
-    fontSize: 20,
-    borderRadius: 10,
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
   },
-  image: {
-    width: 300,
-    height: 200,
-    marginBottom: 20,
+  content: {
+    marginBottom: 50,
+    width: '80%',
   },
+  imagem: {
+    width: '100%',
+    height: 75, // Ajuste a altura desejada
+    resizeMode: 'cover',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+  },  
   title: {
-    fontSize: 31,
+    fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     color: '#007BFF',
   },
-  subtitle:{
+  subtitle: {
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -183,6 +174,20 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 10,
+    fontSize: 20,
+  },
+  button: {
+    backgroundColor: '#3498db',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#ecf0f1',
+    fontWeight: 'bold',
+    fontSize: 20,
+    borderRadius: 10,
   },
   modalContainer: {
     backgroundColor: 'white',
