@@ -111,7 +111,7 @@ export default function Cadastrar() {
           activeOpacity={0.8}
           onPress={handleCadastrar}
         >
-          <Text style={styles.buttonText}>Cadastrar Livro</Text>
+          <Text style={styles.buttonText}>Salvar Livro</Text>
         </TouchableOpacity>
 
         <Modal isVisible={isErrorModalVisible} onBackdropPress={closeModal}>
