@@ -14,7 +14,7 @@ export default function HomeScreen() {
         </Text>
 
         <Image 
-        source={require('./public/home.png')} 
+        source={require('./public/images/home.png')} 
         style={{ width: 500, height: 350, marginBottom: 20, borderRadius: 10 }}
         resizeMode="cover"  
         />

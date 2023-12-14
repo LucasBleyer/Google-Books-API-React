@@ -75,7 +75,7 @@ export default function Cadastrar() {
     <ScrollView contentContainerStyle={{ flexGrow: 1}}>
       <View style={styles.container}>
           <Image
-            source={require('./public/books.jpg')}
+            source={require('./public/images/books.jpg')}
             style={styles.imagem}
           />
 
