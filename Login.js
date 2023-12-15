@@ -23,9 +23,11 @@ export default function Login({ navigation }) {
     navigation.navigate('RegistrarConta');
   };
 
+  const emojiBook = '📚';
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#3498db' }}>
-      
+      <Text style={{ fontWeight: 'bold', fontSize: 90, marginBottom: 5}}>{emojiBook}</Text>
       <Text style={{ fontWeight: 'bold', fontSize: 55, marginBottom: 5, color: '#ecf0f1' }}>Gerenciador de Livros</Text>
       <Text style={{ fontSize: 22, marginBottom: 20, color: '#ecf0f1' }}>Organize suas leituras de maneira simples e eficiente</Text>
       
@@ -75,7 +77,7 @@ export default function Login({ navigation }) {
             backgroundColor: '#2ecc71',
             paddingVertical: 15,
             paddingHorizontal: 30,
-            borderRadius: 5,
+            borderRadius: 60,
           }}
           activeOpacity={0.8} 
           onPress={handleLogin}

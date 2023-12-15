@@ -32,13 +32,16 @@ export default function RegistrarConta () {
     navigation.goBack();
   };
 
+  const emojiBook = '📚';
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#3498db' }}>
-  <Text style={{ fontWeight: 'bold', fontSize: 55, marginBottom: 5, color: '#ecf0f1' }}>Gerenciador de Livros</Text>
-  <Text style={{ fontSize: 22, marginBottom: 20, color: '#ecf0f1' }}>Organize suas leituras de maneira simples e eficiente</Text>
+      <Text style={{ fontWeight: 'bold', fontSize: 90, marginBottom: 5}}>{emojiBook}</Text>
+      <Text style={{ fontWeight: 'bold', fontSize: 55, marginBottom: 5, color: '#ecf0f1' }}>Gerenciador de Livros</Text>
+      <Text style={{ fontSize: 22, marginBottom: 20, color: '#ecf0f1' }}>Organize suas leituras de maneira simples e eficiente</Text>
 
-  <View style={{ width: '80%', alignItems: 'center', marginTop: 70 }}>
-    <Text style={{ fontWeight: 'bold', fontSize: 36, marginBottom: 20, color: '#ecf0f1' }}>Registro de Conta</Text>
+      <View style={{ width: '80%', alignItems: 'center', marginTop: 70 }}>
+      <Text style={{ fontWeight: 'bold', fontSize: 36, marginBottom: 20, color: '#ecf0f1' }}>Registro de Conta</Text>
 
     <TextInput
       style={{
@@ -103,7 +106,7 @@ export default function RegistrarConta () {
         backgroundColor: '#2ecc71',
         paddingVertical: 15,
         paddingHorizontal: 30,
-        borderRadius: 5,
+        borderRadius: 60,
         marginBottom: 10,
       }}
       activeOpacity={0.8}

@@ -99,6 +99,7 @@ export default function Cadastrar() {
           </Text>
         </View>
 
+        <View style={styles.container2}>
         <TextInput
           style={styles.input}
           placeholder="Busque por um livro..."
@@ -111,8 +112,9 @@ export default function Cadastrar() {
           activeOpacity={0.8}
           onPress={handleCadastrar}
         >
-          <Text style={styles.buttonText}>Salvar Livro</Text>
+          <Text style={styles.buttonText}><MaterialCommunityIcons name="magnify" size={35} color="white"></MaterialCommunityIcons></Text>
         </TouchableOpacity>
+        </View>
 
         <Modal isVisible={isErrorModalVisible} onBackdropPress={closeModal}>
           <View style={styles.modalContainer}>
@@ -167,27 +169,28 @@ const styles = StyleSheet.create({
     color: '#555',
     marginTop: 30,
   },
-  input: {
-    width: '80%',
-    height: 40,
-    borderWidth: 2,
-    borderRadius: 5,
-    paddingHorizontal: 10,
+  container2: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 10,
+  },
+  input: {
+    width:300,
+    height: 50,
+    borderWidth: 0.4,
+    borderRadius: 60,
+    paddingHorizontal: 10,
     fontSize: 20,
   },
   button: {
+    height:50,
+    width:50,
+    alignItems: 'center',
     backgroundColor: '#3498db',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 5,
-    marginTop: 10,
-  },
-  buttonText: {
-    color: '#ecf0f1',
-    fontWeight: 'bold',
-    fontSize: 20,
-    borderRadius: 10,
+    borderRadius: 60,
+    marginLeft: 10, 
+    paddingLeft:2,
+    paddingTop:6,
   },
   modalContainer: {
     backgroundColor: 'white',

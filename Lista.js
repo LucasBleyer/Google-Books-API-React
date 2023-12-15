@@ -4,8 +4,7 @@ import { collection, query, getDocs, deleteDoc, doc, where } from 'firebase/fire
 import { db } from './Firebase';
 import { useFocusEffect } from '@react-navigation/native';
 import { getAuth } from 'firebase/auth';
-
-
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 
 export default function Lista () {
@@ -51,10 +50,7 @@ export default function Lista () {
       }, 500); 
     };
 
-    const handleEditar = () => {
-      console.log('Botão Editar pressionado');
-    };
-  
+    
     const handleExcluir = async (id) => {
       try {
 
@@ -101,11 +97,9 @@ export default function Lista () {
         </View>
 
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity style={{ backgroundColor: '#3498db', padding: 8, borderRadius: 5, marginRight: 5 }}  onPress={() => handleEditar(item.id)}>
-            <Text style={{ color: 'white' }}>Editar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ backgroundColor: '#e74c3c', padding: 8, borderRadius: 5 }}  onPress={() => handleExcluir(item.id)}>
-            <Text style={{ color: 'white' }}>Excluir</Text>
+          
+          <TouchableOpacity style={{ backgroundColor: '#fc6d68', padding: 8, borderRadius: 60 }}  onPress={() => handleExcluir(item.id)}>
+            <Text style={{ color: 'white' }}><MaterialCommunityIcons name="delete" size={28} color="white" /></Text>
           </TouchableOpacity>
         </View>
 
