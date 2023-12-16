@@ -4,10 +4,10 @@
     "slug": "AplicativoCotacao",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./public/bookicon.png",
+    "icon": "./public/images/bookicon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./public/bookicon.png",
+      "image": "./public/images/Loading.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./public/logo192.png",
+        "foregroundImage": "./public/images/bookicon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/cash-back.png"
+      "favicon": "./public/images/bookicon.png"
     }
   }
 }

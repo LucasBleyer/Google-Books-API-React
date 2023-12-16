@@ -14,31 +14,35 @@ export default function Cadastrar() {
   const [autor, setAutor] = useState('');
   const [titulo, setTitulo] = useState('');
 
+ 
   const handleCadastrar = async () => {
     try {
       const { thumbnail, autor, nomeLivro } = await BuscaImagem(titulo);
-
+  
       if (thumbnail === 'Capa não encontrada' || autor === 'Autor não encontrado') {
         setErrorMessage('Capa ou autor não encontrado');
+        setSuccessMessage(''); 
         setIsErrorModalVisible(true);
         return;
       }
-
+  
       const auth = getAuth();
-
+  
       await addDoc(collection(db, 'Livros'), {
         autor: autor,
         titulo: nomeLivro,
         thumbnail: thumbnail,
         userId: auth.currentUser.uid,
       });
-
+  
       setSuccessMessage('Livro cadastrado com sucesso!');
+      setErrorMessage(''); 
       setIsErrorModalVisible(true);
-
+  
       console.log('Livro cadastrado com sucesso! Document ID:');
     } catch (error) {
       setErrorMessage(error.message);
+      setSuccessMessage(''); 
       setIsErrorModalVisible(true);
     }
   };
